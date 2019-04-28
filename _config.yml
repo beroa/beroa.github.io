@@ -1,8 +1,7 @@
 # Site settings
 title: Alan Berotti
 email: alanberotti@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Portfolio website for Alan Berotti
+description: Portfolio website for Alan Berotti
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
@@ -12,8 +11,6 @@ email: alanberotti@gmail.com
 linkedin_username: beroa
 github_username: beroa
 
-# API settings
-google_api_key:
 
 # Build settings
 markdown: kramdown

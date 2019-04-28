@@ -27,19 +27,6 @@ $(function() {
   });
 });
 
-// Map scrolling behaviour
-// $(document).ready(function() {
-//   $('#map_iframe').addClass('scrolloff');
-//   $('#map').on('click', function () {
-//     $('#map_iframe').removeClass('scrolloff');
-//   });
-
-//   $('#map_iframe').mouseleave(function  () {
-//     $('#map_iframe').addClass('scrolloff');
-//   });
-// });
-
-
 // draws enso
 var canvas = $("canvas")[0];
 var startRoundness = 1;
@@ -84,6 +71,6 @@ function draw() {
 draw();
 
 var canvasURL = 'url(' + canvas.toDataURL() + ')';
-var canvastext = $(".canvastext");
-canvastext.css('background-image', canvasURL);
+var headerDiv = $(".header-canvas");
+headerDiv.css('background-image', canvasURL);
 // document.body.style.background = "url(" + canvas.toDataURL() + ")";
