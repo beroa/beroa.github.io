@@ -1,4 +1,25 @@
+/* animations */
+@keyframes moveUp{
+    0% {
+        height: 100%;
+        animation: ease-in;
+    }
+    100% {
+        height: 65%;
+    }
+}
+.moveUp {
+    animation-delay: 4s;
+    animation-duration: 2s;
+    animation-name: moveUp;
+    animation-fill-mode: forwards;
+   /* animation-timing-function: cubic-bezier(0.400, 0.000, 0.345, 1.000);*/
+}
+
+
 /* Global Styles */
+
+* { margin: 0, padding: 0 }
 
 html,
 body {
@@ -32,31 +53,50 @@ section h1 {
 /* Header */
 
 header {
-    display: table;
-    position: relative;
-    width: 100%;
-    height: 62%;
-    margin: 0 10px 0 0;
-    padding: 10px;
-    background: #3e3e42;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-.header-text {
-    font-size: 80px;
-}
-.header-canvas {
+    /*display: table;*/
+    
+    top: 0px;
+    margin-top: -20px;
+    
     width: 100%;
     height: 100%;
+    /*margin: 0 10px 0 0;*/
+    padding: 0px;
+    background: #3e3e42;
+}
+.header-container {
+   /* display:table-cell
+    vertical-align: middle;*/
+
+    margin:auto;
+    height:99%;
+    width: 99%;
+    /*display: table-cell;
+    text-align: center;
+    vertical-align: middle;*/
+}
+.header-canvas {
+/*display:inline-block;
+    vertical-align: middle;*/
+
     background-repeat: no-repeat;
     background-position: center; 
     background-size: contain;
     overflow: visible;
-    margin: 20px;
-}
+    height: 100%;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    background-size: auto;
+    -o-background-size: auto;
 
+    /*display: table;
+    text-align: center;
+    vertical-align: middle;*/
+}
+.header-text {
+    font-size: 80px;
+
+}
 
 /* About */
 
