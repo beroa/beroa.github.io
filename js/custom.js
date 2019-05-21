@@ -1,47 +1,69 @@
-// draws enso
 var canvas = $("canvas")[0];
-var startRoundness = 1;
+var blocker = $("#blocker");
+var circle = $("#blocker_circle");
+var startRoundness = 1.2;
+var maxStart = 0;
 
-/* update layout */
-var canvasSize = 400;
+// var canvasSize = 500;
 function setSizes() {
-  canvasSize = $(window).height() * .5;
+  canvasSize = $(window).height() * .42;
   canvas.setAttribute("width", canvasSize);
   canvas.setAttribute("height", canvasSize);
 }
 
-function draw() {
+function init() {
+}
+
+/* draw enso */
+function drawEnso() {
   setSizes();
   var ctx = canvas.getContext("2d");
   var canvasHalf = canvasSize/2;
+  
   var lineWidth = 1;
   var lineCount = canvasSize*.35/lineWidth;
   ctx.lineWidth = lineWidth;
   ctx.strokeStyle = "#66D9EF";
-  var start = Math.random()*2*Math.PI;  
+  
+  var start = Math.random()*2*Math.PI;
   for (var i = 0; i < lineCount; i++){
-    // rounds start point
+    // rounds start points
     if (Math.random()>.5) {
-      if (i < lineCount/2) {start+=.01;}
-      else {start +=startRoundness*.015;}
-    } else {
-      if (i > lineCount/2) {start-=.01;}
+      if (i < lineCount/2) {start-=.01;}
       else {start -=startRoundness*.015;}
+    } else {
+      if (i > lineCount/2) {start+=.01;}
+      else {start +=startRoundness*.015;}
+    }
+    if (start > maxStart) {
+        maxStart = start;
     }
     var radius = canvasHalf-(lineWidth/2)*i;
     var shorten = (Math.PI-Math.random()*Math.PI*.8);
-    var end = start-shorten;
+    var end = start+shorten;
     ctx.beginPath();
-    ctx.arc(canvasHalf, canvasHalf, radius, start, end);
+    ctx.arc(canvasHalf, canvasHalf, radius, end, start);
     ctx.stroke();
     ctx.closePath();
   }
+  // rotates the blocker into place 
+  var myRot = "rotate(" + maxStart + "rad)";
+  blocker.css("transform", myRot);
 }
 
-// setSizes();
-draw();
+function animateBlocker(revealed) { 
+  if (revealed >= 0) {
+    setTimeout(function () {
+        blocker.css("stroke-dasharray", revealed + " 100")
+        revealed = revealed - 1;
+        animateBlocker(revealed);
+    }, 10);
+  }
+}
 
-var canvasURL = 'url(' + canvas.toDataURL() + ')';
-var headerDiv = $(".header-canvas");
-headerDiv.css('background-image', canvasURL);
-// document.body.style.background = "url(" + canvas.toDataURL() + ")";
+$( document ).ready(function() {
+  setSizes();
+  drawEnso();
+  animateBlocker(101);
+  console.log(maxStart)
+});
