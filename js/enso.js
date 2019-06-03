@@ -6,7 +6,7 @@ var maxStart = 0;
 
 // var canvasSize = 500;
 function setSizes() {
-  canvasSize = $(window).height() * .42;
+  canvasSize = $(window).height() * .6;
   canvas.setAttribute("width", canvasSize);
   canvas.setAttribute("height", canvasSize);
 }
@@ -61,9 +61,16 @@ function animateBlocker(revealed) {
   }
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 $( document ).ready(function() {
   setSizes();
   drawEnso();
-  animateBlocker(101);
-  console.log(maxStart)
+  animateBlocker(100)
+  // sleep(1000).then(() => {
+  //   animateBlocker(101);
+  // })
+  
 });
