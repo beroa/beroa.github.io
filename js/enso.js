@@ -43,12 +43,12 @@ function drawEnso() {
   var canvasHalf = canvasSize/2;
   
   var lineWidth = 1;
-  var lineCount = canvasSize*.35/lineWidth-2;
+  var lineCount = canvasSize*.35/lineWidth+2;
   ctx.lineWidth = lineWidth;
   ctx.strokeStyle = "#66D9EF";
   
   var start = Math.random()*2*Math.PI;
-  for (var i = 0; i < lineCount; i++){
+  for (var i = 2; i < lineCount; i++){
     // rounds start points
     if (Math.random()>.5) {
       if (i < lineCount/2) {start-=.01;}
