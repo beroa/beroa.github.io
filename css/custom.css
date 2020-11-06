@@ -75,6 +75,7 @@ header {
     margin: 0 10px 0 0;
     padding: 0px;
     background: #3e3e42;
+    /* background:#3e4eFF; */
 
     position: relative;
     display: inline-block;
@@ -95,8 +96,8 @@ header {
 }
 
 #blocker {
-    height: 510px;
-    width: 510px;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     position: absolute;
     z-index: 1;

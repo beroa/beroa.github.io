@@ -3,12 +3,34 @@ var blocker = $("#blocker");
 var circle = $("#blocker_circle");
 var startRoundness = 1.2;
 var maxStart = 0;
+// var dpi = window.devicePixelRatio;
+
+
+// function fix_dpi() {
+//   //create a style object that returns width and height
+//     let style = {
+//       height() {
+//         return +getComputedStyle(canvas).getPropertyValue('height').slice(0,-2);
+//       },
+//       width() {
+//         return +getComputedStyle(canvas).getPropertyValue('width').slice(0,-2);
+//       }
+//     }
+//   //set the correct attributes for a crystal clear image!
+//     canvas.setAttribute('width', style.width() * dpi);
+//     canvas.setAttribute('height', style.height() * dpi);
+// }
 
 // var canvasSize = 500;
 function setSizes() {
-  canvasSize = $(window).height() * .6;
+  canvasSize = Math.min($(window).height()*.6, $(window).width());
   canvas.setAttribute("width", canvasSize);
   canvas.setAttribute("height", canvasSize);
+  console.log("canvassize: " + canvasSize)
+  // console.log("dpi: " + dpi)
+  // fix_dpi()
+  // circle.setAttribute("width", canvasSize);
+  // circle.setAttribute("height", canvasSize);
 }
 
 function init() {
@@ -21,7 +43,7 @@ function drawEnso() {
   var canvasHalf = canvasSize/2;
   
   var lineWidth = 1;
-  var lineCount = canvasSize*.35/lineWidth;
+  var lineCount = canvasSize*.35/lineWidth-2;
   ctx.lineWidth = lineWidth;
   ctx.strokeStyle = "#66D9EF";
   
