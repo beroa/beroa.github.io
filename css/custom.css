@@ -96,8 +96,6 @@ header {
 }
 
 #blocker {
-    height: 100%;
-    width: 100%;
     border-radius: 50%;
     position: absolute;
     z-index: 1;

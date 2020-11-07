@@ -1,6 +1,5 @@
 var canvas = $("canvas")[0];
 var blocker = $("#blocker");
-var circle = $("#blocker_circle");
 var startRoundness = 1.2;
 var maxStart = 0;
 var dpi = 1.5 //window.devicePixelRatio;
@@ -24,7 +23,8 @@ function setSizes() {
   canvasSize = Math.min($(window).height()*.6, $(window).width());
   canvas.width = canvasSize;
   canvas.height = canvasSize;
-  console.log("canvassize: " + canvasSize)
+  blocker.css("height", canvasSize);
+  blocker.css("width", canvasSize);
   fix_dpi()
 }
 
@@ -59,7 +59,7 @@ function drawEnso() {
     var shorten = (Math.PI-Math.random()*Math.PI*.8);
     var end = start+shorten;
     ctx.beginPath();
-    ctx.arc(canvasHalf*1.5, canvasHalf*1.5, radius, end, start);
+    ctx.arc(canvasHalf*dpi, canvasHalf*dpi, radius, end, start);
     ctx.stroke();
     ctx.closePath();
   }
