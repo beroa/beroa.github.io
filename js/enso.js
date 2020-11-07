@@ -23,12 +23,9 @@ function setSizes() {
   canvasSize = Math.min($(window).height()*.6, $(window).width());
   canvas.width = canvasSize;
   canvas.height = canvasSize;
-  blocker.css("height", canvasSize);
-  blocker.css("width", canvasSize);
+  blocker.css("height", canvasSize+5);
+  blocker.css("width", canvasSize+5);
   fix_dpi()
-}
-
-function init() {
 }
 
 /* draw enso */
@@ -78,16 +75,8 @@ function animateBlocker(revealed) {
   }
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 $( document ).ready(function() {
   setSizes();
   drawEnso();
   animateBlocker(100)
-  // sleep(1000).then(() => {
-  //   animateBlocker(101);
-  // })
-  
 });
