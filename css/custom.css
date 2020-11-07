@@ -1,37 +1,3 @@
-/* animations */
-@keyframes moveUp{
-    0% {
-        height: 100%;
-        animation: ease-in-out
-    }
-    100% {
-        height: 61.8%;
-    }
-}
-.moveUp {
-    animation-delay: 1.75s;
-    animation-duration: .85s;
-    animation-name: moveUp;
-    animation-fill-mode: forwards;
-}
-
-@keyframes appear{
-    0% {
-        opacity: 0;
-        animation: ease-in;
-    }
-    100% {
-        opacity: 100;
-    }
-}
-.appear {
-    /* animation-delay: 2.0s; */
-    animation-duration: .5s;
-    animation-name: appear;
-    animation-fill-mode: forwards;
-}
-
-
 /* Global Styles */
 
 * { margin: 0; padding: 0 }
