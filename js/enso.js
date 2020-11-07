@@ -14,7 +14,6 @@ function fix_dpi() {
       return +getComputedStyle(canvas).getPropertyValue('width').slice(0,-2);
     }
   }
-
   canvas.setAttribute('width', style.width() * dpi);
   canvas.setAttribute('height', style.height() * dpi);
 }
