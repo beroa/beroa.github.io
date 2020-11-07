@@ -5,12 +5,12 @@
         animation: ease-in-out
     }
     100% {
-        height: 68%;
+        height: 61.8%;
     }
 }
 .moveUp {
     animation-delay: 1.75s;
-    animation-duration: 1s;
+    animation-duration: .85s;
     animation-name: moveUp;
     animation-fill-mode: forwards;
 }
