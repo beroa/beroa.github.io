@@ -3,34 +3,29 @@ var blocker = $("#blocker");
 var circle = $("#blocker_circle");
 var startRoundness = 1.2;
 var maxStart = 0;
-// var dpi = window.devicePixelRatio;
+var dpi = 1.5 //window.devicePixelRatio;
 
 
-// function fix_dpi() {
-//   //create a style object that returns width and height
-//     let style = {
-//       height() {
-//         return +getComputedStyle(canvas).getPropertyValue('height').slice(0,-2);
-//       },
-//       width() {
-//         return +getComputedStyle(canvas).getPropertyValue('width').slice(0,-2);
-//       }
-//     }
-//   //set the correct attributes for a crystal clear image!
-//     canvas.setAttribute('width', style.width() * dpi);
-//     canvas.setAttribute('height', style.height() * dpi);
-// }
+function fix_dpi() {
+  let style = {
+    height() {
+      return +getComputedStyle(canvas).getPropertyValue('height').slice(0,-2);
+    },
+    width() {
+      return +getComputedStyle(canvas).getPropertyValue('width').slice(0,-2);
+    }
+  }
 
-// var canvasSize = 500;
+  canvas.setAttribute('width', style.width() * dpi);
+  canvas.setAttribute('height', style.height() * dpi);
+}
+
 function setSizes() {
   canvasSize = Math.min($(window).height()*.6, $(window).width());
-  canvas.setAttribute("width", canvasSize);
-  canvas.setAttribute("height", canvasSize);
+  canvas.width = canvasSize;
+  canvas.height = canvasSize;
   console.log("canvassize: " + canvasSize)
-  // console.log("dpi: " + dpi)
-  // fix_dpi()
-  // circle.setAttribute("width", canvasSize);
-  // circle.setAttribute("height", canvasSize);
+  fix_dpi()
 }
 
 function init() {
@@ -64,7 +59,7 @@ function drawEnso() {
     var shorten = (Math.PI-Math.random()*Math.PI*.8);
     var end = start+shorten;
     ctx.beginPath();
-    ctx.arc(canvasHalf, canvasHalf, radius, end, start);
+    ctx.arc(canvasHalf*1.5, canvasHalf*1.5, radius, end, start);
     ctx.stroke();
     ctx.closePath();
   }
