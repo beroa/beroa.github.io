@@ -2,7 +2,7 @@ var canvas = $("canvas")[0];
 var blocker = $("#blocker");
 var startRoundness = 1.2;
 var maxStart = 0;
-var dpi = 1.5 //window.devicePixelRatio;
+var dpi = 1.5;//window.devicePixelRatio;
 
 
 function fix_dpi() {
@@ -20,6 +20,8 @@ function fix_dpi() {
 
 function setSizes() {
   canvasSize = Math.min($(window).height()*.6, $(window).width());
+  canvas.style.width = canvasSize;
+  canvas.style.height = canvasSize;
   canvas.width = canvasSize;
   canvas.height = canvasSize;
   blocker.css("height", canvasSize+5);
@@ -48,6 +50,7 @@ function drawEnso() {
       if (i > lineCount/2) {start+=.01;}
       else {start +=startRoundness*.015;}
     }
+
     if (start > maxStart) {
         maxStart = start;
     }

@@ -41,8 +41,6 @@ header {
     margin: 0 0 0 0;
     padding: 0px;
     background: #3e3e42;
-    /* background:#3e4eFF; */
-
     position: relative;
     display: inline-block;
 }
@@ -59,6 +57,16 @@ header {
     z-index: 2;
 }
 
+#header_graphics {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    overflow:hidden;
+}
 #blocker {
     border-radius: 50%;
     position: absolute;
@@ -68,16 +76,16 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-  /*   transform: rotate(-90deg); */
     background: none;
     border-radius: 50%;
-  }
-  #blocker_circle {
+    overflow:clip;
+}
+#blocker_circle {
     fill: none;
     stroke: #3e3e42;
     stroke-width: 32;
-  /*   stroke-dasharray: 101 100; */
-  }
+    overflow:hidden;
+}
 
 
 #enso {
